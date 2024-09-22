@@ -1,0 +1,21 @@
+{:tasks
+ {:requires ([babashka.fs :as fs])
+  :init (def env {"JANET_TREE" "./jpm_tree" "JANET_PATH" "./jpm_tree/lib"})
+  deps (let [sentinel (fs/path (get env "JANET_TREE") ".sentinel")
+             sentinel? (fs/exists? sentinel)
+             sentinel-timestamp (if sentinel? (fs/file-time->millis (fs/last-modified-time sentinel)) 0)
+             project (fs/path "project.janet")
+             project-timestamp (fs/file-time->millis (fs/last-modified-time project))]
+         (when (< sentinel-timestamp project-timestamp)
+           (when sentinel? (fs/delete sentinel))
+           (shell "jpm -l deps")
+           (fs/create-file sentinel)))
+  build {:depends [deps]
+         :task (shell "jpm -l build")}
+  clean (shell "jpm clean")
+  start-repl {:depends [deps]
+              :task (shell {:extra-env env}
+                           "janet -e \"(import spork/netrepl) (netrepl/server)\"")}
+  install {:depends [build]
+           :task (shell {:extra-env env}
+                        "jpm -l install")}}}
