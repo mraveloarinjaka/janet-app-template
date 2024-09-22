@@ -2,7 +2,7 @@
 
 [clojure](https://clojure.org/) [clj-new](https://github.com/seancorfield/clj-new) template to create a new [janet](https://janet-lang.org/) project using [jpm](https://github.com/janet-lang/jpm) to manage the build process and [babashka](https://babashka.org/) to orchestrate the build tasks.
 
-[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.mraveloarinjaka/clj-template.janet-app-template.svg?include_prereleases)](https://clojars.org/org.clojars.mraveloarinjaka/clj-template.janet-app-template)
+[![Clojars Project](https://img.shields.io/clojars/v/net.clojars.mraveloarinjaka/clj-template.janet-app-template.svg?include_prereleases)](https://clojars.org/net.clojars.mraveloarinjaka/clj-template.janet-app-template)
 
 ## Usage
 
@@ -30,7 +30,7 @@ variables (requires the `ci` task be run first):
 
     $ clojure -T:build deploy
 
-Your template will be deployed to org.clojars.mraveloarinjaka/janet-app-template on clojars.org by default.
+Your template will be deployed to net.clojars.mraveloarinjaka/janet-app-template on clojars.org by default.
 
 ## License
 
