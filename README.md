@@ -2,6 +2,8 @@
 
 [clojure](https://clojure.org/) [clj-new](https://github.com/seancorfield/clj-new) template to create a new [janet](https://janet-lang.org/) project using [jpm](https://github.com/janet-lang/jpm) to manage the build process and [babashka](https://babashka.org/) to orchestrate the build tasks.
 
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.mraveloarinjaka/clj-template.janet-app-template.svg?include_prereleases)](https://clojars.org/org.clojars.mraveloarinjaka/clj-template.janet-app-template)
+
 ## Usage
 
 Creating a project from this template (the `:clj-new` alias in this template project defaults `:template` to janet-app-template):

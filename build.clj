@@ -5,7 +5,7 @@
             [deps-deploy.deps-deploy :as dd]))
 
 (def lib 'org.clojars.mraveloarinjaka/clj-template.janet-app-template)
-(def version "0.1.0-SNAPSHOT")
+(def version "0.1.1-SNAPSHOT")
 #_; alternatively, use MAJOR.MINOR.COMMITS:
 (def version (format "1.0.%s" (b/git-count-revs nil)))
 (def class-dir "target/classes")
@@ -24,7 +24,7 @@
   opts)
 
 (defn- pom-template [version]
-  [[:description "FIXME: my new template."]
+  [[:description "clojure clj-new template to create a new janet project using jpm to manage the build process and babashka to orchestrate the build tasks."]
    [:url "https://github.com/mraveloarinjaka/janet-app-template"]
    [:licenses
     [:license
