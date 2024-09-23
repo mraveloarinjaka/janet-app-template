@@ -1,6 +1,7 @@
 {:tasks
  {:requires ([babashka.fs :as fs])
-  :init (def env {"JANET_TREE" "./jpm_tree" "JANET_PATH" "./jpm_tree/lib"})
+  :init (def env {"JANET_TREE" "./jpm_tree"
+                  "JANET_PATH" "./jpm_tree/lib"})
   deps (let [sentinel (fs/path (get env "JANET_TREE") ".sentinel")
              sentinel? (fs/exists? sentinel)
              sentinel-timestamp (if sentinel? (fs/file-time->millis (fs/last-modified-time sentinel)) 0)
@@ -12,6 +13,10 @@
            (fs/create-file sentinel)))
   build {:depends [deps]
          :task (shell "jpm -l build")}
+  test {:depends [deps]
+        :task (do
+                (let [cmds (cons "./jpm_tree/bin/judge" *command-line-args*)]
+                  (apply shell cmds)))}
   clean (shell "jpm clean")
   start-repl {:depends [deps]
               :task (shell {:extra-env env}
