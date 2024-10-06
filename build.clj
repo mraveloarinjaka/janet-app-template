@@ -4,8 +4,8 @@
             [clojure.tools.build.api :as b]
             [deps-deploy.deps-deploy :as dd]))
 
-(def lib 'net.clojars.mraveloarinjaka/clj-template.janet-app-template)
-(def version "0.1.2-SNAPSHOT")
+(def lib 'io.github.mraveloarinjaka/clj-template.janet-app-template)
+(def version "0.1.3-SNAPSHOT")
 #_; alternatively, use MAJOR.MINOR.COMMITS:
 (def version (format "1.0.%s" (b/git-count-revs nil)))
 (def class-dir "target/classes")
